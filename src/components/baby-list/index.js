@@ -1,16 +1,8 @@
-import { useState, useEffect } from 'react'
-import BabyService from '../../services/baby'
+import React from 'react'
+import { useBabyContext } from '../../contexts/baby'
+
 function BabyList(){
-  const [ babyList, setBabyList ] = useState([])
-
-  useEffect(()=>{
-    const getList = async()=>{
-      const list = await BabyService.getBabyList()
-      setBabyList(list.babies)
-    }
-    getList()
-  },[])
-
+  const { babyList } = useBabyContext()
   return (
     <div>
         <table border="1" style={{margin: '0 auto', fontSize: 32}}>

@@ -1,7 +1,12 @@
+import BabyContextProvider from './contexts/baby'
 import BabyList from './components/baby-list'
 
 function App() {
-  return <BabyList />
+  return (
+    <BabyContextProvider>
+      <BabyList />
+    </BabyContextProvider>
+  )
 }
 
 export default App;
