@@ -13,20 +13,24 @@ function BabyList(){
 
   return (
     <div>
-        <table border="1" style={{margin: '0 auto', fontSize: 32}}>
-          <tr>
-            <td>First Name</td>
-            <td>Middle Name</td>
-            <td>Last Name</td>
+      <table className="table is-bordered is-fullwidth" border="1" style={{margin: '0 auto', fontSize: 32}}>
+        <thead>
+          <tr className="is-selected">
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
           </tr>
+        </thead>
+        <tbody>
           {Array.isArray(babyList) ? babyList.map((baby)=>(
-            <tr>
+            <tr key={baby.id}>
               <td>{baby.first_name}</td>
               <td>{baby.middle_name}</td>
               <td>{baby.last_name}</td>
             </tr>
           )):null}
-        </table>
+        </tbody>
+      </table>
     </div>
   );
 }
