@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react'
+import React, { createContext, useContext, useState,useEffect } from 'react'
 import BabyService from '../services/baby'
 
 const BabyContext = createContext()
@@ -7,6 +7,11 @@ const useBabyContext = () => useContext(BabyContext)
 
 function BabyProvider ({ children }){
   const [ babyList, setBabyList ] = useState([])
+
+  const addBaby = async (firstName, middleName, lastName) =>{
+    const { babies } = await BabyService.addBaby(firstName, middleName, lastName)
+    setBabyList(babies)
+  }
 
   useEffect(()=>{
     const getList = async()=>{
@@ -17,8 +22,8 @@ function BabyProvider ({ children }){
   },[])
 
   const deleteBaby = async (id) => {
-    const { list } = await BabyService.deleteBaby(id)
-    setBabyList(list)
+    const { babies } = await BabyService.deleteBaby(id)
+    setBabyList(babies)
   }
 
   const updateBaby = async (id, firstName, middleName, lastName) => {
@@ -27,7 +32,7 @@ function BabyProvider ({ children }){
   }
 
   return (
-    <BabyContext.Provider value={{ babyList, deleteBaby, updateBaby }}>
+    <BabyContext.Provider value={{ babyList, addBaby, deleteBaby, updateBaby }}>
       {children}
     </BabyContext.Provider>
   )

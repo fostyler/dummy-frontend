@@ -35,6 +35,27 @@ Service.updateBaby = async (id, firstName, middleName, lastName) => {
   return data
 }
 
+Service.addBaby = async (firstName, middleName, lastName) => {
+  const res = await fetch(URI_baby, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      first_name: firstName,
+      middle_name: middleName,
+      last_name: lastName,
+    })
+  })
+  let data = {}
+  let message = 'baby-update-failed'
+  if (res.ok) {
+    data = await res.json()
+    message = 'baby-update-success'
+  }
+  return data
+}
+
 Service.deleteBaby = async (id) => {
   const res = await fetch(URI_baby, {
     method: 'DELETE',
