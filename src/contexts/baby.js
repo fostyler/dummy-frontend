@@ -21,18 +21,13 @@ function BabyProvider ({ children }){
      getList()
   },[])
 
-  const deleteBaby = async (id) => {
-    const { babies } = await BabyService.deleteBaby(id)
-    setBabyList(babies)
-  }
-
   const updateBaby = async (id, firstName, middleName, lastName) => {
     const { babies } = await BabyService.updateBaby(id, firstName, middleName, lastName)
     setBabyList(babies)
   }
   // Data that's going to be sent to the rest of app.
   return (
-    <BabyContext.Provider value={{ babyList, addBaby, deleteBaby, updateBaby }}>
+    <BabyContext.Provider value={{ babyList, addBaby, updateBaby }}>
       {children}
     </BabyContext.Provider>
   )
