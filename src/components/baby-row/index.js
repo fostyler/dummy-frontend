@@ -2,11 +2,7 @@ import { useState } from 'react'
 import { useBabyContext } from '../../contexts/baby'
 
 function BabyRow({ baby }){
-<<<<<<< Updated upstream
-  const { updateBaby } = useBabyContext()
-=======
   const {  updateBaby } = useBabyContext()
->>>>>>> Stashed changes
   const [ isEditing, setIsEditing ] = useState(false)
   const [ isDisabled, setIsDisabled ] = useState(false)
   const [ firstName, setFirstName ] = useState(baby.first_name)
@@ -14,10 +10,7 @@ function BabyRow({ baby }){
   const [ lastName, setLastName ] = useState(baby.last_name)
   return (
     <tr key={baby.id}>
-<<<<<<< Updated upstream
-=======
      
->>>>>>> Stashed changes
       <td className="is-narrow">
         <button
           className="button is-primary"
