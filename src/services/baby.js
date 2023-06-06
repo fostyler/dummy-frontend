@@ -56,4 +56,8 @@ Service.addBaby = async (firstName, middleName, lastName) => {
   return data
 }
 
+<<<<<<< Updated upstream
 export default Service
+=======
+export default Service
+>>>>>>> Stashed changes
