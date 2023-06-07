@@ -56,4 +56,21 @@ Service.addBaby = async (firstName, middleName, lastName) => {
   return data
 }
 
+Service.deleteBaby = async (id) => {
+  const res = await fetch(URI_baby, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id,
+    })
+  })
+  let data = {}
+  if (res.ok) {
+    data = await res.json()
+  }
+  return data
+}
+
 export default Service
