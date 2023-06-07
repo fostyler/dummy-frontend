@@ -26,13 +26,8 @@ function BabyProvider ({ children }){
     setBabyList(babies)
   }
 
-  const updateBaby = async (id, firstName, middleName, lastName) => {
-    const { babies } = await BabyService.updateBaby(id, firstName, middleName, lastName)
-    setBabyList(babies)
-  }
-
   return (
-    <BabyContext.Provider value={{ babyList, addBaby, deleteBaby, updateBaby }}>
+    <BabyContext.Provider value={{ babyList, addBaby, deleteBaby }}>
       {children}
     </BabyContext.Provider>
   )

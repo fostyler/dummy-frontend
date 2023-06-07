@@ -14,27 +14,6 @@ Service.getBabyList = async () => {
   return data
 }
 
-Service.updateBaby = async (id, firstName, middleName, lastName) => {
-  const res = await fetch(`${URI_baby}?id=${id}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      first_name: firstName,
-      middle_name: middleName,
-      last_name: lastName,
-    })
-  })
-  let data = {}
-  let message = 'baby-update-failed'
-  if (res.ok) {
-    data = await res.json()
-    message = 'baby-update-success'
-  }
-  return data
-}
-
 Service.addBaby = async (firstName, middleName, lastName) => {
   const res = await fetch(URI_baby, {
     method: 'POST',
