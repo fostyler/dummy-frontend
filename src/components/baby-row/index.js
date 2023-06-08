@@ -19,7 +19,7 @@ function BabyRow({ baby }){
         >Delete</button>
       </td>
       <td className="is-narrow">
-        <button className="button-is-primary"
+        <button className="button is-primary"
         onClick={async ()=>{
           if (isEditing){
             setIsDisabled(true)
